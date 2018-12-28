@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Weathers from './Weathers';
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 const axios = require('axios');
 
 const getTemp = (woeid) =>
@@ -39,10 +39,6 @@ class Weather extends Component {
                 var a = [];
                 getProductData(this.props.match.params.s).then(     //tra ve gia tri tim kiem
                     res1 => {
-                        // var ssss = res1.map(e => e); 
-                        // console.log(ssss)
-                        // if(ssss === null)
-                        //     return  <Redirect to="/NotFound" />;
                         this.setState({
                             value1: res1
                         });
@@ -100,7 +96,9 @@ class Weather extends Component {
         // console.log(this.props.match.params.s)
         // console.log(this.state.value1)
         // console.log(this.state.value2)
-        
+        if(this.state.value1 && this.state.value1.length === 0){
+            return  <Redirect to="/NotFound" />;
+        }
         var {value1,value2} = this.state;
         if((value1 && value2) !== null){
             var a = value1.map(v => v.title)
