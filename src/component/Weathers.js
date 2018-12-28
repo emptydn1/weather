@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './imgCss.css';
+import { Link } from 'react-router-dom';
 
 class Weathers extends Component {
 
@@ -42,12 +43,24 @@ class Weathers extends Component {
             )
         }
     }
+    
+    aaaaaa = () => {
+        if(this.props.name){
+            if(this.props.count === 0){
+                return(
+                    <Link to="/" className="btn btn-primary mb-4">
+                        Back Home
+                    </Link>
+                )
+            }
+        }
+    }
 
 
     render() {
-        
         return (
             <div className="col-3 aaaa mt-4 mb-4">
+                {this.aaaaaa()}
                 {this.abc()}
             </div>
         );
