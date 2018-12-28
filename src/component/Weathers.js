@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './imgCss.css';
 
 class Weathers extends Component {
 
@@ -46,7 +47,7 @@ class Weathers extends Component {
     render() {
         
         return (
-            <div className="col-3 mt-4 mb-4">
+            <div className="col-3 aaaa mt-4 mb-4">
                 {this.abc()}
             </div>
         );
