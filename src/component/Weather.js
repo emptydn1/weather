@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Weathers from './Weathers';
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+
 const axios = require('axios');
 
 const getTemp = (woeid) =>
@@ -106,6 +107,7 @@ class Weather extends Component {
                 value2.map((value, index) => {
                         return (
                             <Weathers
+                                count={index}
                                 key={index}
                                 name={a[index]}
                                 date={value[0].applicable_date}
@@ -126,8 +128,11 @@ class Weather extends Component {
             <div>
                 <div className="container-fluid mt-4">
                     <div className="row">
-                        <div className="col-3 d-flex justify-content-start">
+                        <div className="col-3 d-flex justify-content-between align-items-baseline">
                             <h1>{this.state.name}</h1>
+                            <Link to="/" className="btn btn-primary mb-4">
+                                Back Home
+                            </Link>
                         </div>
                         <div className="col-9">
                             <div className="row">
